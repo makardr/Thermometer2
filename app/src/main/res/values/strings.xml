@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Thermometer Main</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="button2">Alternative button</string>
+    <string name="mainTextViewString">0</string>
+    <string name="refreshButtonStart">Start refreshing</string>
+    <string name="refreshButtonStop">Stop refreshing</string>
+    <string name="send_notification">Send notification</string>
+    <string name="channel_name">notification channel name</string>
+    <string name="channel_description">notification channel description</string>
+</resources>
