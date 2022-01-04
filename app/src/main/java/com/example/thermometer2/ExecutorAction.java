@@ -20,11 +20,13 @@ public class ExecutorAction implements Runnable{
         RefreshTextViewExecutor(textView, connectionThread.readStringHtml());
     }
     public void RefreshTextViewExecutor(TextView tv, String value) {
-        if (value!=null) {
+        if (value!=null && tv!=null){
+            Log.i("ExecutorAction", "Start");
             MainActivity.staticCreateNotification("Температура", "Температура печки  " + tv.getText() + " градусов", 1212,"temperature_notification",mainActivity);
             Handler mainHandler = new Handler(Looper.getMainLooper());
             Runnable myRunnable = () -> tv.setText(value);
             mainHandler.post(myRunnable);
+            Log.i("ExecutorAction", "End");
         }
     }
 }
