@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
+
 public class ExecutorAction implements Runnable{
     TextView textView;
     GetThermometerValueAlt connectionThread;
@@ -21,10 +22,18 @@ public class ExecutorAction implements Runnable{
     }
     public void RefreshTextViewExecutor(TextView tv, String value) {
         if (value!=null && tv!=null){
+//            Test
+//            tv= mainActivity.findViewById(R.id.textView);
+//            if (tv.getText().equals(value)) {
+//                value = (Integer.parseInt(value) + 3) + "";
+//            }
+
             Log.i("ExecutorAction", "Start");
             MainActivity.staticCreateNotification("Температура", "Температура печки  " + tv.getText() + " градусов", 1212,"temperature_notification",mainActivity);
             Handler mainHandler = new Handler(Looper.getMainLooper());
-            Runnable myRunnable = () -> tv.setText(value);
+            String finalValue = value;
+            TextView finalTv = tv;
+            Runnable myRunnable = () -> finalTv.setText(finalValue);
             mainHandler.post(myRunnable);
             Log.i("ExecutorAction", "End");
         }
